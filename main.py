@@ -5,7 +5,10 @@
 # YouTube: https://t.me/primexprem
 # License: Open-source (keep credits, no resale)
 # ============================================================
+import asyncio
+asyncio.set_event_loop(asyncio.new_event_loop())
 
+from pyrogram import Client
 from pyrogram import Client
 from config import API_ID, API_HASH, BOT_TOKEN
 import logging

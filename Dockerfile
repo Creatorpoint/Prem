@@ -1,0 +1,22 @@
+# ============================================================
+# Group Manager Bot
+# Support: https://t.me/primexprem
+# Channel: https://t.me/primexprem
+# YouTube: https://t.me/primexprem
+# License: Open-source (keep credits, no resale)
+# ============================================================
+
+# Start from a lightweight Python image
+FROM python:3.10-slim
+WORKDIR /app
+COPY . /app
+
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+    
+# Environment variable to force unbuffered output (helps in logging)
+ENV PYTHONUNBUFFERED=1
+
+# Run the bot..
+CMD ["python", "main.py"]

@@ -1,0 +1,12 @@
+# ============================================================
+# Group Manager Bot
+# Support: https://t.me/primexprem
+# Channel: https://t.me/primexprem
+# YouTube: https://t.me/primexprem
+# License: Open-source (keep credits, no resale)
+# ============================================================
+
+pyrogram==2.0.106
+tgcrypto==1.2.5
+motor==3.1.1
+pymongo[srv]==4.6.3

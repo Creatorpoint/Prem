@@ -12,9 +12,6 @@ from pyrogram import Client
 from config import API_ID, API_HASH, BOT_TOKEN
 import logging
 
-# 🔐 Import security
-from security import verify_integrity, get_runtime_key
-
 logging.basicConfig(level=logging.INFO)
 
 verify_integrity()

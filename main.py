@@ -1,40 +1,35 @@
 # ============================================================
-# Group Manager Bot + Web Dashboard
+# Group Manager Bot
+# Support: https://t.me/primexprem
+# Channel: https://t.me/primexprem
+# YouTube: https://t.me/primexprem
+# License: Open-source (keep credits, no resale)
 # ============================================================
 
-import asyncio
-asyncio.set_event_loop(asyncio.new_event_loop())
 
 from pyrogram import Client
 from config import API_ID, API_HASH, BOT_TOKEN
 import logging
-from handlers import register_all_handlers
-import threading
-import web
-import os
+
+# 🔐 Import security
+from security import verify_integrity, get_runtime_key
 
 logging.basicConfig(level=logging.INFO)
 
+verify_integrity()
+
+RUNTIME_KEY = get_runtime_key()
+
 app = Client(
-    "group_manger_bot",
+    "group_manager_bot",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN
 )
 
+from handlers import register_all_handlers
 register_all_handlers(app)
 
-# ============================================================
-# RUN WEB SERVER
-# ============================================================
-def run_web():
-    port = int(os.environ.get("PORT", 10000))
-    web.app.run(host="0.0.0.0", port=port)
+print("✅ Bot is starting securely...")
 
-threading.Thread(target=run_web).start()
-
-# ============================================================
-# START BOT
-# ============================================================
-print("🚀 Bot + Web starting...")
 app.run()

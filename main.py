@@ -10,13 +10,6 @@ import asyncio
 asyncio.set_event_loop(asyncio.new_event_loop())
 from pyrogram import Client
 from config import API_ID, API_HASH, BOT_TOKEN
-import logging
-
-logging.basicConfig(level=logging.INFO)
-
-verify_integrity()
-
-RUNTIME_KEY = get_runtime_key()
 
 app = Client(
     "group_manager_bot",
